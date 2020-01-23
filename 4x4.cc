@@ -69,22 +69,21 @@ int main()
 
 		if ( step == 0) {
 
-		double temp = 0;
-		double rel_err = 0;
-		Eigen::VectorXcd b(m);
+			double temp = 0;
+			double rel_err = 0;
+			Eigen::VectorXcd b(m);
 
-		out1 << ces.eigenvectors() << std::endl;
+			out1 << ces.eigenvectors() << std::endl;
 
-		for (int i = 0; i < 4; i++) {
+			for (int i = 0; i < 4; i++) { // find maximum relative error (in euclidean norm)
 
-		b =  ces.eigenvectors().col(i); 
+				b =  ces.eigenvectors().col(i); 
 
-		temp  = (a*b - ces.eigenvalues()[i]*b).norm() / b.norm();
-		rel_err = temp>rel_err? temp : rel_err;
+				temp  = (a*b - ces.eigenvalues()[i]*b).norm() / b.norm();
+				rel_err = temp>rel_err? temp : rel_err;
 			}
-		
-		std::cout << rel_err << std::endl; 
 
+			std::cout << rel_err << std::endl; 
 		}
 
 		for (int i = 0; i<m; i++) {
