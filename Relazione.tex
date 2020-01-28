@@ -1,10 +1,6 @@
 \documentclass{article}
 \usepackage[utf8]{inputenc}          % Italian accents
-<<<<<<< HEAD
 \usepackage[english]{babel}
-=======
-\usepackage[italian]{babel}
->>>>>>> 6f25b4315d41aa2beabea92abb08179ae0fc11fb
 \usepackage{graphicx}    
 \usepackage{amsmath}                 
 \usepackage{amsfonts}                
@@ -18,12 +14,8 @@
 \definecolor{mymauve}{rgb}{0.58,0,0.82}
 % for including source code snippet
 \usepackage{listings}
-<<<<<<< HEAD
 \usepackage[font=small,it]{caption} % differentiate captions from normal text
 \usepackage{hyperref} %for using autoref
-=======
->>>>>>> 6f25b4315d41aa2beabea92abb08179ae0fc11fb
-
 \lstset{ 
 	backgroundcolor=\color{white},   % choose the background color; you must add \usepackage{color} or \usepackage{xcolor}; should come as last argument
 	basicstyle=\scriptsize,          % the size of the fonts that are used for the code \scriptsize
@@ -56,12 +48,7 @@
 \begin{document} 
 	
 	\author{Cesare Cozza \\ Prisco Lo Chiatto }
-<<<<<<< HEAD
 	\title{Numerical simulation of the longitudinal dispersion bands of phonons in a $(GaAs)_1/(AlAs)_1$ superlattice}
-=======
-	\title{Numerical simulation of the dispersion bands of phonons in GaAs/AlAs superlattice}
->>>>>>> 6f25b4315d41aa2beabea92abb08179ae0fc11fb
-	
 	\maketitle
     \newpage
     
@@ -72,7 +59,6 @@
 
 
 \section{Introduction}
-<<<<<<< HEAD
 \begin{figure}
 	\centering
 	\includegraphics[scale=0.3]{reticolo.jpg}
@@ -104,11 +90,6 @@ Normal vibrational modes of a of quantized elastic system are called phonon. The
 The [0,0,1] direction has been considered, so that the materials' layers follow each other orthogonally with respect to this direction. Only longitudinal vibrations have been taken into account. \\
 Thanks to the periodicity of the system and the approximations taken each layer will be considered as a single atom (see \autoref{fig:reticolo}). The physical model is then a linear chain of atoms in which the unit cell is made up by 4 atoms, $Ga$-$As$-$Al$-$As$ as in \autoref{fig:cella}, and only interaction with first neighbour has been taken into account. \\
 Thanks to the harmonic approximation it is possible to solve the dynamic of the system using Hooke's Law and considering the displacement of each atom with respect to its equilibrium position.The following system results (see \autoref{fig:cella} for the meaning of each symbol):
-=======
-Studyng the vibrational properties of a solid it will be studied the lattice dynamics and thanks to the periodicity of the system the problem will reduces in the solution of the dynamics of the atoms in the unitary cell. Two approximations will be attuated: the harmonic approximation, which consider the atomics core as simple harmonic oscillator, and the Born-Oppenheimer approximation from which it is possible to treat indipendently the ionics and electronics motion. Thanks to these approximation it is possible to treat quantistically the problem of vibration in a solid and find the dispersion bands. A phonon is a quasiparticle and it represents a vibrational mode of the system and the dispersion relation describe how the vibrational frequencies of the system depends by $|\vec{q}|$, the wavevector of the phonon. \\
-In a superlattice of GaAs/AlAs it has been considered the [0,0,1] direction so that the material's layer follow each other orthogonally respect this direction, and has been taken in count only longitudinal vibration. Thanks to the periodicity of the system and the approximations taken it is possible to consider each layer of semicoductor as two single atoms of which that molecule is made up and study the dispersion relation of the system on a linear chain. It has been studied the propagation of a wave in a linear chain of atoms in which the unit cell is made up by 4 atoms, Ga-As-Al-As as in Figure \ref{fig:cella}, and interaction with first neighbour. \\
-Thanks to the harmonic approximation it is possible to solve the dynamic of the system with the Brooke's Law and considering the displacemento of each atom in respect to its equilibrium position it has been written the following system to resolve:
->>>>>>> 6f25b4315d41aa2beabea92abb08179ae0fc11fb
 \begin{equation}
 	\begin{cases}
 	M_{Ga}\ddot{u_l} = -k_1(u_l-v_l) - k_1(u_l-y_{l-1}) \\
@@ -116,15 +97,9 @@ Thanks to the harmonic approximation it is possible to solve the dynamic of the 
 	M_{Al}\ddot{w_l} = -k_2(w_l-v_l) - k_2(w_l-y_l) \\
 	M_{As}\ddot{y_l} = -k_2(y_l-w_l) - k_1(y_l-u_{l+1}) \\
 	\end{cases}
-<<<<<<< HEAD
 	\label{eq:sistema}	
 \end{equation}
 To solve this system we impose that every displacement has the form of a plane wave:
-=======
-	\label{sistema}	
-\end{equation}
-To solve this system we impose for every displacement the solution of the plane wave as:
->>>>>>> 6f25b4315d41aa2beabea92abb08179ae0fc11fb
 \begin{equation}
 	\begin{cases}
 	u_l = Ue^{i(qla-\omega t)} \\
@@ -132,7 +107,6 @@ To solve this system we impose for every displacement the solution of the plane 
 	w_l = We^{i(qla-\omega t)} \\
 	y_l = Ye^{i(qla-\omega t)} \\
 	\end{cases}
-<<<<<<< HEAD
 	\label{eq:onde piane}
 \end{equation}
 where $a$ is the lattice parameter of the superlattice (sum of the lengths of the respective unit cells).
@@ -144,25 +118,6 @@ Solving the system for $\omega$ and then varying $\vec{q}$ will lead to the disp
 \section{Numerical solution}
 The problem of the dispersion bads of GaAs/AlAs reduces to the solution of the system showed in \autoref{eq:sistema}. \\
 Substituting in the system the solution for the plain wave in \autoref{eq:onde piane}, after some algebra one gets:
-=======
-	\label{onde piane}
-\end{equation}
-where $a$ is the length of the unit cell.
-Solving the system in search of $\omega(q)$ will lead to the dispersion bands; because of the choice of the unit cell with 4 atoms the system to solve has 4 equation ando so it is expected to find 4 dispersion bands.  
-
-
-\begin{figure}
-	\centering
-	\includegraphics[width=0.7\linewidth]{cella.png}
-	\caption{In the image is shown the 4-atom unitary cell analized in this work.$k_1$ is the elastic constant between Ga and As and $k_2$ is the elastic constant between Al and As. Considering an infinite linear chain $u_l$ represent the displacement of the l-th atom of Ga, $v_l$ the displacement of the l-th atom of As of the GaAs molecule, $w_l$ the displacement of the l-th atom of Al, $y_l$ the displacement of the l-th atom of As of the AlAs molecule.   }
-	\label{fig:cella}
-\end{figure}
-
-
-\section{Problem solution ?????}
-The problem of the dispersion bads of GaAs/AlAs reduces to the solution of the system showed in Eq.\ref{sistema}. \\
-Substituting in the system the solution for the plain wave in Eq.\ref{onde piane} with some algebra it is obtained:
->>>>>>> 6f25b4315d41aa2beabea92abb08179ae0fc11fb
 \begin{equation}
 	\begin{cases}
 	(-\omega^2M_1 + 2k_1)U - k_1V - (k_1e^{-iqa})Y = 0 \\
@@ -171,40 +126,25 @@ Substituting in the system the solution for the plain wave in Eq.\ref{onde piane
 	-(k_1e^{iqa})U - k_2W + (-\omega^2M_2 + k_1 + k_2)Y = 0	
 	\end{cases}
 	\label{sist.final}
-\end{equation}
-<<<<<<< HEAD
+\end {equation}
+
 This is convenient as the system's associated matrix is already written in the form $[-\omega^2I + A]$, where
-
-
 \begin{equation} 
 A = \begin{pmatrix}
-=======
-It has been written the matrix for the variables $U, V, W, Y$ and the diagonalization of that matrix will lead to the solution fot the displacement of each atom. The matrix in this form is already written in the form $[-\omega^2I - A]$ so it is possible to consider $-\omega^2$ as the eigenvalues to find and they will lead, calculated for all the $q$ of the Brillouin Zone at the dispersion relation. The eigenvectors of the matrix are instead the the displacement of the songle atoms in the chain. The problem reduces to find eigenvalues and eigenvectors of the matrix:
-
-\begin{equation} 
-\begin{pmatrix}
->>>>>>> 6f25b4315d41aa2beabea92abb08179ae0fc11fb
    \frac{2k_1}{M_{Ga}}	& 0  & -\frac{k_1}{M_{Ga}}  & -\frac{k_1}{M_{Ga}}e^{-iqa}  \\ 
    0	& \frac{2k_2}{M_{Al}}  & -\frac{k_2}{M_{Al}}  & -\frac{k_2}{M_{Al}}  \\ 
    -\frac{k_1}{M_{As}} 	& -\frac{k_2}{M_{As}}   & \frac{k_1}{M_{As}}+\frac{k_2}{M_{As}}   & 0  \\ 
    -\frac{k_1}{M_{As}}e^{iqa} 	& -\frac{k_2}{M_{As}}  & 0  & \frac{k_1}{M_{As}}+\frac{k_2}{M_{As}}   
 \end{pmatrix} 
-<<<<<<< HEAD
 \label{eq:matrice}
 \end{equation}
+
 
 so it is possible to solve the secular equation and find $\omega^2$. Varying $q$ inside the first Brillouin Zone one arrives at the dispersion relation. The eigenvectors of A are instead the displacement of the single atoms in the chain.\par
 \medskip
 
 To obtain the solution of the problem a numerical approach was undertaken: a program in C++ has been written which, after discretising the Brillouin Zone in a selected number of points, calculate appropriate wavevector $q$ for each points, and then fills the matrix in \autoref{eq:matrice} with the appropriate values. Finally, using a subroutine of the $Eigen$ linear algebra package, it finds eigenvectors and eigenvalues for each matrix.\\
 The result is a discretized version of the dispersion relation, which is then plotted with GNUPLOT.
-=======
-\label{matrice}
-\end{equation}
-
-To obtain the solution of the probel it has been written a program in C++ which discretizes the Brillouin Zone in a selected number of points and than fills the matrix showed in Eq.\ref{matrice} with the appropriate wavevector $q$ and find eigenvectors and eigenvalues for every matrix built up. The diagonalization of the matrix it has been done through the use of the function XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX. \\
-The results obtained are written on appropriate external file and than plotted with GNUPLOT.
->>>>>>> 6f25b4315d41aa2beabea92abb08179ae0fc11fb
 
 \begin{lstlisting}[language=C++, caption={Subroutine norma \\ \emph{maodulo.f90}}]
 

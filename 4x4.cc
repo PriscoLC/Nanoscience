@@ -61,7 +61,8 @@ int main()
 
 	for (int step = -n_step/2; step <= n_step/2 ; step++) {
 
-		cappa = PI*step/n_step;
+		double stepp = step;
+		cappa = PI*stepp/n_step;
 
 		out2 << cappa << "	";
 
