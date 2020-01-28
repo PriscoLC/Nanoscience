@@ -6,15 +6,18 @@
 
 #define PI acos(-1)
 
+//using atomic units everywhere
 
-const double m_As = 33;
-const double m_Ga = 31;
-const double m_Al = 13;
+const int mass_unit = 1836; //m_e = 1
 
-const double k_Ga = 0.90860;
-const double k_Al = 0.94723;
+const double m_As = 33*mass_unit;
+const double m_Ga = 31*mass_unit;
+const double m_Al = 13*mass_unit;
 
-const int n_step = 500; //number of bins in k space
+const double k_Ga = 1102840962; // 9086000 dyn/m;
+const double k_Al = 1149729303; // 9472300 dyn/m;
+
+const int n_step = 200; //number of bins in k space
 
 void selectionSort(double a[], int n) {
 	int i, j, min;
@@ -34,6 +37,7 @@ int main()
 {
 
 	const int m = 4;
+
 	Eigen::MatrixXcd a(m, m);
 	typedef std::complex<double> C;
 	double temp_array[m];
@@ -62,8 +66,8 @@ int main()
 		out2 << cappa << "	";
 
 
-		a(0,3) = C(-k_Ga*cos(PI*step/n_step)/m_Ga,k_Ga*sin(PI*step/n_step)/m_Ga);
-		a(3,0) = C(-k_Ga*cos(PI*step/n_step)/m_As,-k_Ga*sin(PI*step/n_step)/m_As);
+		a(0,3) = C(-k_Ga*cos(cappa)/m_Ga,k_Ga*sin(cappa)/m_Ga);
+		a(3,0) = C(-k_Ga*cos(cappa)/m_As,-k_Ga*sin(cappa)/m_As);
 
 		ces.compute(a);
 
@@ -86,7 +90,7 @@ int main()
 			std::cout << rel_err << std::endl; 
 		}
 
-		for (int i = 0; i<m; i++) {
+		for (int i = 0; i < m; i++) {
 
 			temp_array[i] =sqrt(ces.eigenvalues()[i].real());
 		}
@@ -94,7 +98,7 @@ int main()
 		selectionSort(temp_array,m);
 
 
-		for (int i = 0; i< m ; i++) {
+		for (int i = 0; i < m ; i++) {
 
 			out2 << temp_array[i] << "	";
 
