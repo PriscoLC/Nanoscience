@@ -16,6 +16,8 @@ const long double m_Al = 26.98*mass_unit;
 
 const double k_Ga = 90860; // dyn/cm 
 const double k_Al = 94723; // dyn/cm
+const double k_Ga-Al =
+const double k_As-As = 
 
 const int n_step = 200; //number of bins in k space
 
@@ -36,7 +38,7 @@ void selectionSort(double a[], int n) {
 int main()
 {
 
-	const int m = 4;
+	const int m = 8;
 
 	Eigen::MatrixXcd a(m, m);
 	typedef std::complex<double> C;
@@ -53,7 +55,7 @@ int main()
 
 	ces.compute(a);
 
-	std::ofstream out1 ("autovettori_Gamma.txt");
+	std::ofstream out1 ("autovettori_Gamma_secondi.txt");
 	std::ofstream out2 ("out.txt");
 
 	double cappa;
