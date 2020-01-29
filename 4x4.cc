@@ -14,8 +14,8 @@ const long double m_As = 74.921*mass_unit;
 const long double m_Ga = 69.723*mass_unit;
 const long double m_Al = 26.98*mass_unit;
 
-const double k_Ga = 90860; // dyn/cm 
 const double k_Al = 94723; // dyn/cm
+const double k_Ga = k_Al;// 90860; // dyn/cm 
 
 const int n_step = 200; //number of bins in k space
 
@@ -58,12 +58,11 @@ int main()
 
 	double cappa;
 
-
 	for (double step = -n_step/2; step <= n_step/2 ; step++) {
 
-		cappa = PI*step/n_step;
+		cappa = 2*PI*step/n_step;
 
-		out2 << cappa << "	";
+		out2 << cappa/PI << "	";
 
 
 		a(0,3) = C(-k_Ga*cos(cappa)/m_Ga,k_Ga*sin(cappa)/m_Ga);
@@ -74,20 +73,20 @@ int main()
 		if ( step == 0) {
 
 			out1 << ces.eigenvectors() << std::endl;
-		//	double temp = 0;
-		//	double rel_err = 0;
-		//	Eigen::VectorXcd b(m);
+			//	double temp = 0;
+			//	double rel_err = 0;
+			//	Eigen::VectorXcd b(m);
 
 
-		//	for (int i = 0; i < 4; i++) { // find maximum relative error (in euclidean norm)
+			//	for (int i = 0; i < 4; i++) { // find maximum relative error (in euclidean norm)
 
-		//		b =  ces.eigenvectors().col(i); 
+			//		b =  ces.eigenvectors().col(i); 
 
-		//		temp  = (a*b - ces.eigenvalues()[i]*b).norm() / (b.norm());
-		//		rel_err = temp>rel_err? temp : rel_err;
-		//	}
+			//		temp  = (a*b - ces.eigenvalues()[i]*b).norm() / (b.norm());
+			//		rel_err = temp>rel_err? temp : rel_err;
+			//	}
 
-	//		std::cout << rel_err << std::endl; 
+			//		std::cout << rel_err << std::endl; 
 		}
 
 		for (int i = 0; i < m; i++) {
@@ -96,6 +95,7 @@ int main()
 		}
 
 		selectionSort(temp_array,m);
+
 
 
 		for (int i = 0; i < m ; i++) {

@@ -65,17 +65,17 @@
 	\caption{The superlattice used in this study and its projection on the [001] direction. Gallium atoms are painted black, Aluminium ones are blue and Arsenic is white. Note that, when projecting on the [001] direction, each of the planes can be treated as a single atom.}
 	\label{fig:reticolo}
 \end{figure}
-Normal vibrational modes of a of quantized elastic system are called phonon. They are collective excitation - i.e. bosonic quasiparticles - and their dispersion relation are related to a number of properties of the system itself. \smallskip 
-A superlattice is a kind of metamaterial made up from two (or more) materials, in a periodic structure. An ideal $(GaAs)_1/(AlAs)_1$ superlattice is made up from one layer of $GaAs$ followed by one of $AlAs$ in a periodic matter (see \autoref{fig:reticolo}.\smallskip
+Normal vibrational modes of a of quantized elastic system are called phonon. They are collective excitation - i.e. bosonic quasiparticles - and their dispersion relation are related to a number of properties of the system itself. \\
+A superlattice is a kind of metamaterial made up from two (or more) materials, in a periodic structure. An ideal $(GaAs)_1/(AlAs)_1$ superlattice is made up from one layer of $GaAs$ followed by one of $AlAs$ in a periodic matter (see \autoref{fig:reticolo}).\smallskip
 
-	In general, the vibrational properties of a crystalline solid can be studied trough lattice dynamics; thanks to the periodicity of the system the problem can be further reduced to the solution of the dynamics of the atoms in the unitary cell.\\
+In general, the vibrational properties of a crystalline solid can be studied trough lattice dynamics; thanks to the periodicity of the system the problem can be further reduced to the solution of the dynamics of the atoms in the unitary cell.\\
 	Three more approximations will be employed:
 	\begin{enumerate}
-		\item \textbf{The harmonic approximation}, which consider the atomics cores as simple harmonic oscillator
-		\item \textbf{The first neighbour approximation}, where for each atom the interaction between anything other than the closest atoms next to it are neglected.
-		\item \textbf{The Born-Oppenheimer approximation} where ionic and electronic motions can be treated indipendently.
+		\item \textbf{The harmonic approximation}, which consider the atomic cores as simple harmonic oscillator
+		\item \textbf{The nearest neighbour approximation}, where for each atom the interaction between anything other than the closest atoms next to it are neglected.
+		\item \textbf{The Born-Oppenheimer approximation} where ionic and electronic motions can be treated independently.
 	\end{enumerate}
-	Thanks to these approximation it is possible to reduce in a the quanto-mechanical problem of vibration in a solid to the classical one of finding the normal modes to then find the dispersion bands (how the frequency depends on $\vec{q}$, the wavevector of the mode).\\
+	Thanks to these approximation it is possible to reduce the quanto-mechanical problem of vibrations in a solid to the classical one of finding the normal modes. The dispersion bands (how the frequency depends on $\vec{q}$, the wavevector of the mode) can then be found trough a simple numerical algorithm.\\
 Only the [0,0,1] direction will be considered, so that the materials' layers follow each other orthogonally with respect to this direction. Only longitudinal vibrations have been taken into account. \\
 
 	\section{Physical Problem}
@@ -88,7 +88,7 @@ Only the [0,0,1] direction will be considered, so that the materials' layers fol
 	\label{fig:cella}
 \end{figure}
 
-Because of the approximation used in this study, the relevant physical model is a linear chain of atoms in which the unit cell is made up by 4 atoms, $Ga$-$As$-$Al$-$As$ as in \autoref{fig:cella}, and- at least in first approximation - only interaction with first neighbour needs to be taken into account. \\
+Because of the approximation used in this study, the relevant physical model is a linear chain of atoms in which the unit cell is made up by 4 atoms, $Ga$-$As$-$Al$-$As$ as in \autoref{fig:cella}, and- at least in first approximation - only interaction with nearest neighbour needs to be taken into account. \\
 The following system results (see \autoref{fig:cella} for the meaning of each symbol):
 \begin{equation}
 	\begin{cases}
@@ -142,6 +142,9 @@ so it is possible to solve the secular equation and find $\omega^2$. Varying $q$
 
 To obtain the solution of the problem a numerical approach was undertaken: a program in C++ has been written which, after discretising the Brillouin Zone in a selected number of points, calculate appropriate wavevector $q$ for each points, and then fills the matrix in \autoref{eq:matrice} with the appropriate values. Finally, using a subroutine of the $Eigen$ linear algebra package, it finds eigenvectors and eigenvalues for each matrix.\\
 The result is a discretized version of the dispersion relation, which is then plotted with GNUPLOT.
+
+\section{Results and Comparison}
+The results whose comparison to known literature is easier is 
 
 \begin{lstlisting}[language=C++, caption={Subroutine norma \\ \emph{maodulo.f90}}]
 
