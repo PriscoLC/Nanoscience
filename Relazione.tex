@@ -62,11 +62,10 @@
 \begin{figure}
 	\centering
 	\includegraphics[scale=0.3]{reticolo.jpg}
-	\caption{The superlattice used in this study and its projection on the [001] direction. Gallium atoms are painted black, Aluminium ones are blue and Arsenic is white. Note that, while projectin on the [001] direction, the motion of each one of the planes can be inferred from a single atom model.}
+	\caption{The superlattice used in this study and its projection on the [001] direction. Gallium atoms are painted black, Aluminium ones are blue and Arsenic is white. Note that, when projecting on the [001] direction, each of the planes can be treated as a single atom.}
 	\label{fig:reticolo}
 \end{figure}
-The scope of this work is to study the longitudinal vibrational properties of a $(GaAs)_1/(AlAs)_1$ superlattice trough a simple numerical simulation.\medskip
-
+Normal vibrational modes of a of quantized elastic system are called phonon. They are collective excitation - i.e. bosonic quasiparticles - and their dispersion relation are related to a number of properties of the system itself. \smallskip 
 A superlattice is a kind of metamaterial made up from two (or more) materials, in a periodic structure. An ideal $(GaAs)_1/(AlAs)_1$ superlattice is made up from one layer of $GaAs$ followed by one of $AlAs$ in a periodic matter (see \autoref{fig:reticolo}.\smallskip
 
 	In general, the vibrational properties of a crystalline solid can be studied trough lattice dynamics; thanks to the periodicity of the system the problem can be further reduced to the solution of the dynamics of the atoms in the unitary cell.\\
@@ -76,8 +75,10 @@ A superlattice is a kind of metamaterial made up from two (or more) materials, i
 		\item \textbf{The first neighbour approximation}, where for each atom the interaction between anything other than the closest atoms next to it are neglected.
 		\item \textbf{The Born-Oppenheimer approximation} where ionic and electronic motions can be treated indipendently.
 	\end{enumerate}
-	Thanks to these approximation it is possible to treat in a simple manner the quanto-mechanical problem of vibration in a solid and find the dispersion bands (how the frequency depends on $\vec{q}$, the wavevector of the phonon).\\
-Normal vibrational modes of a of quantized elastic system are called phonon. They are collective excitation - i.e. bosonic quasiparticles - and their dispersion relation are related to a number of properties of the system itself. \smallskip 
+	Thanks to these approximation it is possible to reduce in a the quanto-mechanical problem of vibration in a solid to the classical one of finding the normal modes to then find the dispersion bands (how the frequency depends on $\vec{q}$, the wavevector of the mode).\\
+Only the [0,0,1] direction will be considered, so that the materials' layers follow each other orthogonally with respect to this direction. Only longitudinal vibrations have been taken into account. \\
+
+	\section{Physical Problem}
 
 \begin{figure}
 	\centering
@@ -87,9 +88,8 @@ Normal vibrational modes of a of quantized elastic system are called phonon. The
 	\label{fig:cella}
 \end{figure}
 
-The [0,0,1] direction has been considered, so that the materials' layers follow each other orthogonally with respect to this direction. Only longitudinal vibrations have been taken into account. \\
-Thanks to the periodicity of the system and the approximations taken each layer will be considered as a single atom (see \autoref{fig:reticolo}). The physical model is then a linear chain of atoms in which the unit cell is made up by 4 atoms, $Ga$-$As$-$Al$-$As$ as in \autoref{fig:cella}, and only interaction with first neighbour has been taken into account. \\
-Thanks to the harmonic approximation it is possible to solve the dynamic of the system using Hooke's Law and considering the displacement of each atom with respect to its equilibrium position.The following system results (see \autoref{fig:cella} for the meaning of each symbol):
+Because of the approximation used in this study, the relevant physical model is a linear chain of atoms in which the unit cell is made up by 4 atoms, $Ga$-$As$-$Al$-$As$ as in \autoref{fig:cella}, and- at least in first approximation - only interaction with first neighbour needs to be taken into account. \\
+The following system results (see \autoref{fig:cella} for the meaning of each symbol):
 \begin{equation}
 	\begin{cases}
 	M_{Ga}\ddot{u_l} = -k_1(u_l-v_l) - k_1(u_l-y_{l-1}) \\
@@ -111,9 +111,6 @@ To solve this system we impose that every displacement has the form of a plane w
 \end{equation}
 where $a$ is the lattice parameter of the superlattice (sum of the lengths of the respective unit cells).
 Solving the system for $\omega$ and then varying $\vec{q}$ will lead to the dispersion bands; because the unit cell has 4 atoms the system to solve is 4-dimensional and so 4 dispersion bands are expected.  
-
-
-
 
 \section{Numerical solution}
 The problem of the dispersion bands of GaAs/AlAs reduces to the solution of the system showed in \autoref{eq:sistema}. \\
