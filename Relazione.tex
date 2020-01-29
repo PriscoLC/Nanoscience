@@ -74,7 +74,7 @@ In general, the vibrational properties of a crystalline solid can be studied tro
 	\begin{enumerate}
 		\item \textbf{The harmonic approximation}, which consider the atomic cores as simple harmonic oscillator
 		\item \textbf{The nearest neighbour approximation}, where for each atom the interaction between anything other than the closest atoms next to it are neglected.
-		\item \textbf{The Born-Oppenheimer approximation} where ionic and electronic motions can be treated independently.
+		\item \textbf{The Born-Oppenheimer approximation}, where ionic and electronic motions can be treated independently.
 	\end{enumerate}
 	Thanks to these approximation it is possible to reduce the quanto-mechanical problem of vibrations in a solid to the classical one of finding the normal modes. The dispersion bands (how the frequency depends on $\vec{q}$, the wavevector of the mode) can then be found trough a simple numerical algorithm.\\
 Only the [0,0,1] direction will be considered, so that the materials' layers follow each other orthogonally with respect to this direction. Only longitudinal vibrations have been taken into account. \\
@@ -89,7 +89,7 @@ Only the [0,0,1] direction will be considered, so that the materials' layers fol
 	\label{fig:cella}
 \end{figure}
 
-Because of the approximation used in this study, the relevant physical model is a linear chain of atoms in which the unit cell is made up by 4 atoms, $Ga$-$As$-$Al$-$As$ as in \autoref{fig:cella}, and- at least in first approximation - only interaction with nearest neighbour needs to be taken into account. \\
+Because of the approximation used in this study, the relevant physical model is a linear chain of atoms in which the unit cell is made up by 4 atoms, $Ga$-$As$-$Al$-$As$ as in \autoref{fig:cella}, and - at least in first approximation - only interaction with nearest neighbour needs to be taken into account. \\
 The following system results (see \autoref{fig:cella} for the meaning of each symbol):
 \begin{equation}
 	\begin{cases}
@@ -111,7 +111,7 @@ To solve this system we impose that every displacement has the form of a plane w
 	\label{eq:onde piane}
 \end{equation}
 where $a$ is the lattice parameter of the superlattice (sum of the lengths of the respective unit cells).
-Solving the system for $\omega$ and then varying $\vec{q}$ will lead to the dispersion bands; because the unit cell has 4 atoms the system to solve is 4-dimensional and so 4 dispersion bands are expected.  
+Solving the system for $\omega$ and then varying $\vec{q}$ will lead to the dispersion bands; since the unit cell has 4 atoms the system to solve is 4-dimensional and so 4 dispersion bands are expected.  
 
 \section{Numerical solution}
 The problem of the dispersion bands of GaAs/AlAs reduces to the solution of the system showed in \autoref{eq:sistema}. \\
@@ -138,15 +138,15 @@ A = \begin{pmatrix}
 \end{equation}
 
 
-so it is possible to solve the secular equation and find $\omega^2$. Varying $q$ inside the first Brillouin Zone one arrives at the dispersion relation. The eigenvectors of A are instead the displacement of the single atoms in the chain.\par
+so it is possible to solve the secular equation and find $\omega^2$. Varying $q$ inside the first Brillouin Zone (the direction is fixed so only the magnitude varies) one arrives at the dispersion relation, whereas the eigenvectors of A are the displacement of the single atoms in the chain.\par
 \medskip
 
-To obtain the solution of the problem a numerical approach was undertaken: a program in C++ has been written which, after discretising the Brillouin Zone in a selected number of points, calculate appropriate wavevector $q$ for each points, and then fills the matrix in \autoref{eq:matrice} with the appropriate values. Finally, using a subroutine of the $Eigen$ linear algebra package, it finds eigenvectors and eigenvalues for each matrix.\\
-The result is a discretized version of the dispersion relation, which is then plotted with GNUPLOT.
+To obtain the solution of the problem a numerical approach was undertaken: a program in C++ has been written which, after discretising the Brillouin Zone in a selected number of points, calculates the appropriate wavevector $q$ for each points, and then fills the matrix in \autoref{eq:matrice} with the appropriate values. Finally, using a subroutine of the $Eigen$ linear algebra package, it finds eigenvectors and eigenvalues for each matrix.\\
+The result is a discretized version of the dispersion relation, which is then plotted using GNUPLOT.
 
 \section{Results and Comparison}
 The results whose comparison to known literature is easier is 
-
+XXX
 \begin{lstlisting}[language=C++, caption={Subroutine norma \\ \emph{maodulo.f90}}]
 
 CODICE

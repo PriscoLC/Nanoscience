@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2019.7.18)  29 JAN 2020 19:58
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2019.7.18)  29 JAN 2020 20:13
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -411,7 +411,7 @@ File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
 ) [1
 
 {/usr/local/texlive/2019/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
-<reticolo.jpg, id=29, 946.53625pt x 386.44376pt>
+<reticolo.jpg, id=33, 946.53625pt x 386.44376pt>
 File: reticolo.jpg Graphic file (type jpg)
 <use reticolo.jpg>
 Package pdftex.def Info: reticolo.jpg  used on input line 64.
@@ -422,7 +422,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 79--81
  []
 
 [2 <./reticolo.jpg>]
-<cella.png, id=45, 896.34875pt x 327.2225pt>
+<cella.png, id=49, 896.34875pt x 327.2225pt>
 File: cella.png Graphic file (type png)
 <use cella.png>
 Package pdftex.def Info: cella.png  used on input line 86.
@@ -434,22 +434,15 @@ Package atveryend Info: Empty hook `AfterLastShipout' on input line 159.
  (./Relazione.aux)
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 159.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 159.
-
-
-Package rerunfilecheck Warning: File `Relazione.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `Relazione.out':
-(rerunfilecheck)             Before: 614640852A351D43FF544203AB225D97;194
-(rerunfilecheck)             After:  47BCE163D99CD2D8A16706468CD24144;251.
+Package rerunfilecheck Info: File `Relazione.out' has not changed.
+(rerunfilecheck)             Checksum: 47BCE163D99CD2D8A16706468CD24144;251.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 159.
  ) 
 Here is how much of TeX's memory you used:
- 9444 strings out of 492609
- 137474 string characters out of 6129033
+ 9445 strings out of 492609
+ 137485 string characters out of 6129033
  433604 words of memory out of 5000000
- 13208 multiletter control sequences out of 15000+600000
+ 13209 multiletter control sequences out of 15000+600000
  22711 words of font info for 87 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  36i,8n,58p,626b,1285s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -472,10 +465,10 @@ exmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/local/texlive/2019/texm
 f-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2019/texmf
 -dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2019/texmf-d
 ist/fonts/type1/public/amsfonts/cm/cmti9.pfb>
-Output written on Relazione.pdf (4 pages, 339440 bytes).
+Output written on Relazione.pdf (4 pages, 339919 bytes).
 PDF statistics:
- 144 PDF objects out of 1000 (max. 8388607)
- 115 compressed objects within 2 object streams
+ 147 PDF objects out of 1000 (max. 8388607)
+ 118 compressed objects within 2 object streams
  22 named destinations out of 1000 (max. 500000)
- 43 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 51 words of extra memory for PDF output out of 10000 (max. 10000000)
 
