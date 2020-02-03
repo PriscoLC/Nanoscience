@@ -12,10 +12,10 @@ const long double mass_unit = 1.67*pow(10,-24); //m_p = 1
 
 const long double m_As = 74.921*mass_unit;
 const long double m_Ga = 69.723*mass_unit;
-const long double m_Al = 26.98*mass_unit;
+const long double m_Al = 26.98 *mass_unit;
 
-const double k_Al = 94723; // dyn/cm
-const double k_Ga = k_Al;// 90860; // dyn/cm 
+const double k_Al = (94723 + 90860)/2; // dyn/cm
+const double k_Ga = k_Al;//90860; // dyn/cm 
 
 const int n_step = 200; //number of bins in k space
 
@@ -43,10 +43,10 @@ int main()
 	double temp_array[m];
 
 	a <<
-		C(2*k_Ga/m_Ga,0), C(0,0), C(-k_Ga/m_Ga,0), C(0,0),
-		C(0,0), C(2*k_Al/m_Al,0), C(-k_Al/m_Al,0), C(-k_Al/m_Al,0),
-		C(-k_Ga/m_As,0), C(-k_Al/m_As,0), C((k_Ga+k_Al)/m_As,0), C(0,0),
-		C(0,0), C(-k_Al/m_As,0), C(0,0), C((k_Al+k_Ga)/m_As,0);
+		C(2*k_Ga/m_Ga,0),C(-k_Ga/m_Ga,0), 	 C(0,0), 	C(0,0),
+		C(-k_Ga/m_As,0),  C((k_Ga+k_Al)/m_As,0),C(-k_Al/m_As,0), C(0,0),
+		C(0,0),		  C(-k_Al/m_Al,0),	C(2*k_Al/m_Al,0), C(-k_Al/m_Al,0),
+		C(0,0), 	 	C(0,0),		C(-k_Al/m_As,0), C((k_Al+k_Ga)/m_As,0);
 
 
 	Eigen::ComplexEigenSolver<Eigen::MatrixXcd> ces;
@@ -72,21 +72,29 @@ int main()
 
 		if ( step == 0) {
 
-			out1 << ces.eigenvectors() << std::endl;
-			//	double temp = 0;
-			//	double rel_err = 0;
-			//	Eigen::VectorXcd b(m);
+
+			for (int i = 0; i < m; i++) {
+				out1 << ces.eigenvalues()[i];
+				for (int j = 0; j < m; j++) {
+
+					out1 << ces.eigenvectors().col(i).row(j).real() << "	";
+				}
+				out1 << std::endl;
+			}
+				double temp = 0;
+				double rel_err = 0;
+				Eigen::VectorXcd b(m);
 
 
-			//	for (int i = 0; i < 4; i++) { // find maximum relative error (in euclidean norm)
+				for (int i = 0; i < 4; i++) { // find maximum relative error (in euclidean norm)
 
-			//		b =  ces.eigenvectors().col(i); 
+					b =  ces.eigenvectors().col(i); 
 
-			//		temp  = (a*b - ces.eigenvalues()[i]*b).norm() / (b.norm());
-			//		rel_err = temp>rel_err? temp : rel_err;
-			//	}
+					temp  = (a*b - ces.eigenvalues()[i]*b).norm() / (b.norm());
+					rel_err = temp>rel_err? temp : rel_err;
+				}
 
-			//		std::cout << rel_err << std::endl; 
+					std::cout << rel_err << std::endl; 
 		}
 
 		for (int i = 0; i < m; i++) {
@@ -101,11 +109,9 @@ int main()
 		for (int i = 0; i < m ; i++) {
 
 			out2 << temp_array[i] << "	";
-
 		}
 
 		out2 << std::endl;
-
 	}
 	return 0;
 }
