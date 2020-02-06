@@ -53,17 +53,21 @@
 \begin{document} 
 	
 	\author{Cesare Cozza \\ Prisco Lo Chiatto }
-	\title{Numerical simulation of the longitudinal dispersion bands of phonons in a $(GaAs)_1/(AlAs)_1$ superlattice}
+	\title{Numerical simulation of the longitudinal dispersion bands of phonons in a $(GaAs)_1/(AlAs)_1$ superlattice along the [001] direction}
 	\maketitle
     
-    
-\section{Abstract}
-A simple linear chain model is used to employ a numerical simulation of the vibrational properties of an ultra-thin $(GaAs)_1/(AlAs)_1$ superlattice. Along the [001] direction, longitudinal Phononic bands are calculated, along with displacements in $\Gamma$ and $GaAs/AlAs$-like LO modes, both in the nearest neighbour and in the next-nearest neighbour approximations.\\
-This work shows how even simple models are able to capture the essential features of the physical problems, such as correctly hinting at the presence of confined modes.
+	\begin{center}
+	\section*{Abstract}
+	\end{center}
+	
+
+	The longitudinal vibrational properties of an “ultra-thin” $(GaAs)_1/(AlAs)_1$ superlattice are studied along the [001] direction using a series of approximation, so that the problem can be reduced to the study of a simple linear chain of harmonic oscillator.\\
+	Phononic bands are calculated numerically, along with displacements in $\Gamma$ and the frequency of $GaAs/AlAs$-like LO modes, both in the nearest neighbour and in the next-nearest neighbour approximations. Comparison is made with experiments and more refined theoretical models.\\
+This work shows how even simple models are able to capture the essential features of the physical problem, such as correctly hinting at the presence of confined modes.
 
 
     \newpage
-\section{Introduction}
+\section*{Introduction}
 \begin{figure}
 	\centering
 	\includegraphics[scale=0.3]{reticolo.jpg}
@@ -83,16 +87,16 @@ In general, the vibrational properties of a crystalline solid can be studied thr
 		\item \textbf{The Born-Oppenheimer approximation}, where ionic and electronic motions can be treated independently.
 	\end{enumerate}
 	The second will later be relaxed to include also the next to nearest neighbour.\\
-	Thanks to these approximation it is possible to reduce the quanto-mechanical problem of vibrations in a solid to the classical one of finding the normal modes. The dispersion bands (how the frequency depends on $\vec{q}$, the wavevector of the mode) can then be found trough a simple numerical algorithm.\\
+	Thanks to these approximation it is possible to reduce the quanto-mechanical problem of vibrations in a solid to the classical one of finding the normal modes of a linear chain of harmonic oscillators. The dispersion bands (how the frequency depends on $\vec{q}$, the wavevector of the mode) can then be found trough a simple numerical algorithm.\\
 Only the [0,0,1] direction will be considered, so that the materials' layers follow each other orthogonally with respect to this direction. Only longitudinal vibrations have been taken into account. \\
 
-	\section{Physical Problem}
+	\section*{Physical Problem}
 
 \begin{figure}
 	\centering
 	\includegraphics[width=0.7\linewidth]{cella.png}
 	\caption{The 4-atom unitary cell analysed in this work in the nearest neighbours approximation.\\
-	$k_1$ is the elastic constant between $Ga$ and $As$ and $k_2$ is the elastic constant between $Al$ and $As$. Considering an infinite linear chain $u_l$ represent the displacement of the l-th (arbitrary origin) atom of $Ga$, $v_l$ the displacement of the l-th atom of $As$ of the GaAs molecule, $w_l$ the displacement of the l-th atom of $Al$, $y_l$ the displacement of the l-th atom of $As$ of the $AlAs$ molecule.   }
+	$k_1$ is the elastic constant between $Ga$ and $As$ and $k_2$ is the elastic constant between $Al$ and $As$. Considering an infinite linear chain $u_l$ represents the displacement of the l-th (arbitrary origin) atom of $Ga$, $v_l$ the displacement of the l-th atom of $As$ of the GaAs molecule, $w_l$ the displacement of the l-th atom of $Al$, $y_l$ the displacement of the l-th atom of $As$ of the $AlAs$ molecule.   }
 	\label{fig:cella}
 \end{figure}
 
@@ -127,7 +131,7 @@ Similarly, one can obtain the following system when in the next-nearest neighbou
 	\centering
 	\includegraphics[width=0.7\linewidth]{cella2.png}
 	\caption{The 4-atom unitary cell analysed in this work in the next-nearest neighbours approximation.\\
-	$k_1$ is the elastic constant between $Ga$ and $As$ and $k_2$ is the elastic constant between $Al$ and $As$, while $k_3$ and $k_4$ are the cation-cation and anion-anion force constants, respectively. Considering an infinite linear chain $u_l$ represent the displacement of the l-th (arbitrary origin) atom of $Ga$, $v_l$ the displacement of the l-th atom of $As$ of the GaAs molecule, $w_l$ the displacement of the l-th atom of $Al$, $y_l$ the displacement of the l-th atom of $As$ of the $AlAs$ molecule.   }
+	$k_1$ is the elastic constant between $Ga$ and $As$ and $k_2$ is the elastic constant between $Al$ and $As$, while $k_3$ and $k_4$ are the cation-cation and anion-anion force constants, respectively. Considering an infinite linear chain $u_l$ represents the displacement of the l-th (arbitrary origin) atom of $Ga$, $v_l$ the displacement of the l-th atom of $As$ of the GaAs molecule, $w_l$ the displacement of the l-th atom of $Al$, $y_l$ the displacement of the l-th atom of $As$ of the $AlAs$ molecule.   }
 	\label{fig:cella2}
 \end{figure}
 \begin{equation}
@@ -145,7 +149,7 @@ Since the force constant $k_1$ and $k_2$ are so similar (equal up to less than 5
 As for the next-nearest neighbour case, $k_3$($k_4$) is taken to be the average of the anion-anion(cation-cation) constant of $GaAs$ and $AlAs$.
 
 \newpage
-\section{Numerical solution}
+\section*{Numerical solution}
 The problem of finding the dispersion bands of GaAs/AlAs reduces - in the nearest neighbour approximation - to the solution of the system showed in \autoref{eq:sistema}. \\
 Substituting into the system the solution for the plain wave in \autoref{eq:onde piane}, after some algebra one gets:
 \begin{equation}
@@ -187,14 +191,8 @@ A' = \begin{pmatrix}
 
 To obtain the solution of the problem a numerical approach was undertaken: a program in C++ has been written which, after discretising the Brillouin Zone in a selected number of points, calculates the appropriate wavevector $q$ for each points, and then fills the matrix in \autoref{eq:matrice} with the appropriate values. Finally, using a subroutine of the $Eigen$ linear algebra package, it finds eigenvectors and eigenvalues for each matrix.\\
 The result is a discretized version of the dispersion relation, which is then plotted using GNUPLOT. \par
-To check that the eigenvectors and eigenvalues are self-consistent, the following quantity is calculated:
-\begin{equation}
-max_{i}(\frac{A*v_{i} - \lambda_i*v_i}{\lambda_i*v_i})
-	\label{<+label+>}
-\end{equation}
-where $v_i$ is the i-th eigenvector as calculated by the subroutine and $\lambda_i$ its corresponding eigenvalues. Values near machine-eps are expected.
 
-\section{Results and Comparison} 
+\section*{Results and Comparison} 
 \begin{figure}[ht]
 	\centering
 	\includegraphics[scale=0.3]{same.jpeg}
@@ -239,7 +237,7 @@ The results whose comparison to known literature is easier is the frequency of t
 \end{table}
 
 \newpage
-\section{Conclusions}
+\section*{Conclusions}
 A simple model has been used to calculate the vibrational properties of an “ultra-thin” $GaAs$/$AlAs$ as a linear chain of atoms oscillating along the [001] direction.\\
 Comparison of the $GaAs$/$AlAs$-like frequencies to both experiment and more sophisticated theoretical models gives a satisfactory level of agreement, given the crudeness of the model. On the other hand, confinement is only partially exhibited by this model, as show by looking at the amplitudes of the normal modes.
 
